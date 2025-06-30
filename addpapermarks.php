@@ -8,44 +8,56 @@
 </head>
 <body>
     
-    <div class="container mt-5" style="max-width: 600px;">
-  <h3 class="mb-4">Add Obtained Marks</h3>
+   <div style="max-width:600px; margin:80px auto; padding:30px; background-color:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1); font-family:'Segoe UI', sans-serif;">
+  <h3 style="margin-bottom:25px; color:#333;">📝 Add Obtained Marks</h3>
+
   <form method="post" action="">
-    <div class="mb-3">
-      <label for="obt_marks" class="form-label">Obtained Marks</label>
-      <input type="text" class="form-control" name="obt_marks" id="obt_marks" required>
+    
+    <!-- Obtained Marks -->
+    <div style="margin-bottom:20px;">
+      <label for="obt_marks" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Obtained Marks</label>
+      <input type="text" id="obt_marks" name="obt_marks" required 
+             style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
     </div>
 
-    <select class="form-control mb-3" name="paper_id" required>
-      <?php
-      $sql = "SELECT * FROM `papers`";
-      $result = mysqli_query($conn, $sql);
-      foreach ($result as $data) {
-      ?>
-        <option value="<?php echo $data['id']; ?>"><?php echo $data['paper_type_id']; ?></option>
-      <?php
-      }
-      ?>
-    </select>
+    <!-- Paper Select -->
+    <div style="margin-bottom:20px;">
+      <label for="paper_id" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Select Paper</label>
+      <select name="paper_id" required 
+              style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
+        <?php
+        $sql = "SELECT * FROM `papers`";
+        $result = mysqli_query($conn, $sql);
+        foreach ($result as $data) {
+        ?>
+          <option value="<?php echo $data['id']; ?>"><?php echo $data['paper_type_id']; ?></option>
+        <?php } ?>
+      </select>
+    </div>
 
-    <select class="form-control mb-3" name="student_id" required>
-      <?php
-      $sql = "SELECT * FROM `students`";
-      $result = mysqli_query($conn, $sql);
-      foreach ($result as $data) {
-      ?>
-        <option value="<?php echo $data['stu_id']; ?>"><?php echo $data['stu_name']; ?></option>
-      <?php
-      }
-      ?>
-    </select>
+    <!-- Student Select -->
+    <div style="margin-bottom:25px;">
+      <label for="student_id" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Select Student</label>
+      <select name="student_id" required 
+              style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
+        <?php
+        $sql = "SELECT * FROM `students`";
+        $result = mysqli_query($conn, $sql);
+        foreach ($result as $data) {
+        ?>
+          <option value="<?php echo $data['stu_id']; ?>"><?php echo $data['stu_name']; ?></option>
+        <?php } ?>
+      </select>
+    </div>
 
-    <button type="submit" class="btn btn-success">Add marks</button>
+    <!-- Submit Button -->
+    <button type="submit" 
+            style="background-color:#28a745; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+      ➕ Add Marks
+    </button>
   </form>
 </div>
 
-   
-  </form>
 </body>
 </html>
 

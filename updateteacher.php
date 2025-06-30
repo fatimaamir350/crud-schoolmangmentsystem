@@ -41,25 +41,30 @@
     ?>
 </body>
 </html>
-<h3 style="text-align: center; font-family: Arial, sans-serif; margin-bottom: 20px;">Update Teacher</h3>
-<form method="post" style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+<div style="margin-left: 250px; padding: 30px; font-family: Arial, sans-serif;">
+  <h3 style="text-align: center; margin-bottom: 30px; font-weight: bold; color: #333;">👨‍🏫 Update Teacher</h3>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Teacher Name</label>
-        <input type="text" name="teacher_name" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $data['tech_name'] ?>" required>
+  <form method="post" 
+        style="max-width: 600px; margin: auto; padding: 25px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
+
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; font-weight: bold; margin-bottom: 6px;">👤 Teacher Name</label>
+      <input type="text" name="teacher_name"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $data['tech_name'] ?>" required>
     </div>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Teacher Email</label>
-        <input type="email" name="teacher_email" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $data['tech_email'] ?>" required>
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; font-weight: bold; margin-bottom: 6px;">📧 Teacher Email</label>
+      <input type="email" name="teacher_email"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $data['tech_email'] ?>" required>
     </div>
 
-    <select class="form-control" name="subjectname"
-            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;">
+    <div style="margin-bottom: 25px;">
+      <label style="display: block; font-weight: bold; margin-bottom: 6px;">📚 Subject</label>
+      <select name="subjectname"
+              style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         <?php
         $sql = "SELECT * FROM `subjects`";
         $result = mysqli_query($conn, $sql);
@@ -72,15 +77,17 @@
                 echo $selected;
             }
         ?>
-            <option value="<?php echo $data['id'] ?>"><?php echo $selected ?><?php echo $data['subject_name'] ?></option>
+          <option value="<?php echo $data['id'] ?>"><?php echo $selected ?><?php echo $data['subject_name'] ?></option>
         <?php
         }
         ?>
-    </select>
+      </select>
+    </div>
 
-    <button type="submit" class="btn btn-primary"
-            style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-        Update
+    <button type="submit"
+            style="width: 100%; background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold; font-size: 16px;">
+      ✅ Update
     </button>
 
-</form>
+  </form>
+</div>

@@ -37,16 +37,30 @@
 
     ?>
 
-     <h3>Update Student</h3>
-        <form method="post">
-            <div class="mb-3">
-             <label>Name</label>
-                <input type="text" name="subject_name" class="form-control" value="<?= $data['subject_name'] ?>" required>
-   
-            </div>
-         
-                <button type="submit" class="btn btn-primary">Update</button>
+    <div style="max-width:600px; margin:80px auto; padding:30px; background-color:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:'Segoe UI', sans-serif;">
+  
+  <!-- Heading -->
+  <h3 style="margin-bottom:25px; color:#333; text-align:center;">✏️ Update Student</h3>
 
-            </form>
+  <!-- Form -->
+  <form method="post">
+
+    <!-- Student Name -->
+    <div style="margin-bottom:20px;">
+      <label for="subject_name" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Student Name</label>
+      <input type="text" name="subject_name" id="subject_name"
+             value="<?= $data['subject_name'] ?>" required
+             style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit"
+            style="background-color:#007bff; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+      🔄 Update
+    </button>
+
+  </form>
+</div>
+
 </body>
 </html>

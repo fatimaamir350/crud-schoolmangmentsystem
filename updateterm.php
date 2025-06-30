@@ -38,19 +38,23 @@
     ?>
 </body>
 </html>
- <h3 style="text-align: center; font-family: Arial, sans-serif; margin-bottom: 20px;">Update Term</h3>
-<form method="post" style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+ <div style="margin-left: 250px; padding: 30px; font-family: Arial, sans-serif;">
+  <h3 style="text-align: center; margin-bottom: 25px;">📆 Update Term</h3>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Term Name</label>
-        <input type="text" name="term_name" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $data['term_name'] ?>" required>
+  <form method="post" style="max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.08);">
+
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; font-weight: bold; margin-bottom: 6px;">📝 Term Name</label>
+      <input type="text" name="term_name" class="form-control"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;"
+             value="<?= $data['term_name'] ?>" required>
     </div>
 
     <button type="submit" class="btn btn-primary"
-            style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-        Update
+            style="width: 100%; background-color: #007bff; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 16px;">
+      ✅ Update
     </button>
 
-</form>
+  </form>
+</div>
+

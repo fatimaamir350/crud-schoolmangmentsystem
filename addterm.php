@@ -7,16 +7,27 @@
     <?php include_once("navbar.php") ?>
 </head>
 <body>
-    <div class="container mt-5" style="max-width: 600px;">
-  <h3 class="mb-4">Add Term</h3>
+   <div style="max-width:600px; margin:80px auto; padding:30px; background-color:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1); font-family:'Segoe UI', sans-serif;">
+  <h3 style="margin-bottom:25px; color:#333;">🗓️ Add Term</h3>
+
   <form method="post" action="">
-    <div class="mb-3">
-      <label for="name" class="form-label">Term Name</label>
-      <input type="text" class="form-control" name="term_name" id="term_name" required>
+
+    <!-- Term Name Input -->
+    <div style="margin-bottom:20px;">
+      <label for="term_name" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Term Name</label>
+      <input type="text" id="term_name" name="term_name" required
+             style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
     </div>
-     <button type="submit" class="btn btn-success">Add Term</button>
+
+    <!-- Submit Button -->
+    <button type="submit"
+            style="background-color:#28a745; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+      ➕ Add Term
+    </button>
+
   </form>
 </div>
+
 </body>
 </html>
 

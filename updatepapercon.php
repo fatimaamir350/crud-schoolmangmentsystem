@@ -51,43 +51,58 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
    
 </body>
 </html>
-<h3 style="font-family: Arial, sans-serif; margin-bottom: 20px; text-align: center;">Update Paper Content</h3>
+<div style="max-width:700px; margin:80px auto; padding:30px; background-color:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.1); font-family:'Segoe UI', sans-serif;">
 
+  <!-- Heading -->
+  <h3 style="margin-bottom:30px; color:#333; text-align:center;">📄 Update Paper Content</h3>
 
-<form method="post" enctype="multipart/form-data" style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
-    
-    <div style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Content</label>
-        <img style="height: 80px; width:auto; margin-bottom: 10px;" src="upload/<?php echo $data['file_path']; ?>" alt="">
-        <input type="text" name="content" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" value="<?= $data['content'] ?>" required>
+  <form method="post" enctype="multipart/form-data">
+
+    <!-- Content Field -->
+    <div style="margin-bottom:20px;">
+      <label for="content" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Content</label>
+      <img src="upload/<?php echo $data['file_path']; ?>" alt="" style="height:80px; width:auto; margin-bottom:10px; display:block;">
+      <input type="text" name="content" id="content" value="<?= $data['content'] ?>" required 
+             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:16px;">
     </div>
 
-    <div style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Upload New File</label>
-        <input type="file" name="file" style="width: 100%; padding: 8px;">
-        <p style="margin-top: 8px;">Current File: 
-            <a href="upload/<?= $data['file_path'] ?>" target="_blank"><?= $data['file_path'] ?></a>
-        </p>
+    <!-- File Upload Field -->
+    <div style="margin-bottom:20px;">
+      <label for="file" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Upload New File</label>
+      <input type="file" name="file" id="file" 
+             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:15px;">
+      <p style="margin-top:10px; font-size:14px; color:#555;">
+        📎 Current File: 
+        <a href="upload/<?= $data['file_path'] ?>" target="_blank" style="color:#007bff; text-decoration:underline;">
+          <?= $data['file_path'] ?>
+        </a>
+      </p>
     </div>
 
-    <div style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Select Paper</label>
-        <select name="paper_id" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-            <?php
-            $sql = "SELECT * FROM `papers`";
-            $result = mysqli_query($conn, $sql);
-            foreach ($result as $paper) {
-                $selected = ($data['paper_id'] == $paper["id"]) ? "selected" : "";
-                ?>
-                <option value="<?php echo $paper['id']; ?>" <?php echo $selected; ?>>
-                    <?php echo $paper['paper_title']; ?>
-                </option>
-                <?php
-            }
-            ?>
-        </select>
+    <!-- Paper Dropdown -->
+    <div style="margin-bottom:25px;">
+      <label for="paper_id" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Select Paper</label>
+      <select name="paper_id" id="paper_id" required 
+              style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:16px;">
+        <?php
+        $sql = "SELECT * FROM `papers`";
+        $result = mysqli_query($conn, $sql);
+        foreach ($result as $paper) {
+          $selected = ($data['paper_id'] == $paper["id"]) ? "selected" : "";
+        ?>
+          <option value="<?php echo $paper['id']; ?>" <?php echo $selected; ?>>
+            <?php echo $paper['paper_title']; ?>
+          </option>
+        <?php } ?>
+      </select>
     </div>
 
-    <button type="submit" class="btn btn-primary" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Update</button>
+    <!-- Submit Button -->
+    <button type="submit" 
+            style="background-color:#007bff; color:white; padding:12px 25px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+      🔄 Update
+    </button>
 
-</form>
+  </form>
+</div>
+

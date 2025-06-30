@@ -44,19 +44,26 @@
     ?>
 </body>
 </html>
- <h3 style="font-family: Arial, sans-serif; margin-bottom: 20px; text-align: center;">Update Class</h3>
+ <div style="max-width:600px; margin:80px auto; padding:30px; background-color:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:'Segoe UI', sans-serif;">
+  
+  <!-- Heading -->
+  <h3 style="margin-bottom:25px; color:#333; text-align:center;">🏫 Update Class</h3>
 
-<form method="post" style="max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
-    
-    <div style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Class Name</label>
-        <input type="text" name="class_name" value="<?= $data['class_name'] ?>" 
-            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" required>
+  <!-- Form Start -->
+  <form method="post">
+
+    <!-- Class Name Field -->
+    <div style="margin-bottom:20px;">
+      <label for="class_name" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Class Name</label>
+      <input type="text" name="class_name" id="class_name" value="<?= $data['class_name'] ?>" required 
+             style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
     </div>
 
+    <!-- Submit Button -->
     <button type="submit" 
-        style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-        Update
+            style="background-color:#007bff; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+      🔄 Update
     </button>
 
-</form>
+  </form>
+</div>

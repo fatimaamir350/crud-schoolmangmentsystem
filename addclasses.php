@@ -7,14 +7,23 @@
     <?php include_once("navbar.php"); ?>
 </head>
 <body>
-     <div class="container mt-5" style="max-width: 600px;">
-  <h3 class="mb-4">Add Classes</h3>
+  <div style="max-width:600px; margin:80px auto; padding:30px; background-color:#ffffff; border:1px solid #ccc; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1); font-family:'Segoe UI', sans-serif;">
+  <h3 style="margin-bottom:25px; color:#333;"> Add Class</h3>
+
   <form method="post" action="">
-    <div class="mb-3">
-      <label for="name" class="form-label">Class Name</label>
-      <input type="text" class="form-control" name="class_name" id="class_name" required>
+    <div style="margin-bottom:20px;">
+      <label for="class_name" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Class Name</label>
+      <input type="text" id="class_name" name="class_name" required 
+             style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
     </div>
-     <button type="submit" class="btn btn-success">Add Class</button>
+
+    <button type="submit" 
+            style="background-color:#28a745; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+      Add Class
+    </button>
+  </form>
+</div>
+
 </body>
 </html>
 <?php

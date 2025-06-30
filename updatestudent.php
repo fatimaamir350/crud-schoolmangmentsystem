@@ -65,63 +65,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-   <h3 style="font-family: Arial, sans-serif; margin-bottom: 20px; text-align: center;">Update Student</h3>
+ <div style="margin-left: 250px; padding: 30px; font-family: Arial, sans-serif;">
+  <h3 style="text-align: center; margin-bottom: 30px; font-weight: bold; color: #333;">🎓 Update Student</h3>
 
-<form method="post" style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+  <form method="post" 
+        style="max-width: 600px; margin: auto; padding: 25px; border: 1px solid #ccc; border-radius: 10px; background-color: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Name</label>
-        <input type="text" name="stu_name" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $row['stu_name'] ?>" required>
+    <div style="margin-bottom: 15px;">
+      <label style="font-weight: bold; margin-bottom: 5px; display: block;">👤 Name</label>
+      <input type="text" name="stu_name"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $row['stu_name'] ?>" required>
     </div>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Email</label>
-        <input type="email" name="stu_email" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $row['stu_email'] ?>" required>
+    <div style="margin-bottom: 15px;">
+      <label style="font-weight: bold; margin-bottom: 5px; display: block;">📧 Email</label>
+      <input type="email" name="stu_email"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $row['stu_email'] ?>" required>
     </div>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Phone</label>
-        <input type="text" name="stu_phone" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $row['stu_phone'] ?>" required>
+    <div style="margin-bottom: 15px;">
+      <label style="font-weight: bold; margin-bottom: 5px; display: block;">📱 Phone</label>
+      <input type="text" name="stu_phone"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $row['stu_phone'] ?>" required>
     </div>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 8px;">Gender</label>
-        <input type="radio" name="stu_gender" value="Male" <?= $row['stu_gender'] == 'Male' ? 'checked' : '' ?>
-               style="margin-right: 5px;"> Male
-        <input type="radio" name="stu_gender" value="Female" <?= $row['stu_gender'] == 'Female' ? 'checked' : '' ?>
-               style="margin-left: 15px; margin-right: 5px;"> Female
+    <div style="margin-bottom: 15px;">
+      <label style="font-weight: bold; margin-bottom: 5px; display: block;">⚧ Gender</label>
+      <label style="margin-right: 15px;">
+        <input type="radio" name="stu_gender" value="Male" 
+               <?= $row['stu_gender'] == 'Male' ? 'checked' : '' ?>> Male
+      </label>
+      <label>
+        <input type="radio" name="stu_gender" value="Female" 
+               <?= $row['stu_gender'] == 'Female' ? 'checked' : '' ?>> Female
+      </label>
     </div>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Date</label>
-        <input type="date" name="stu_date" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $row['stu_date'] ?>" required>
+    <div style="margin-bottom: 15px;">
+      <label style="font-weight: bold; margin-bottom: 5px; display: block;">📅 Date</label>
+      <input type="date" name="stu_date"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $row['stu_date'] ?>" required>
     </div>
 
-    <div class="mb-3" style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Class ID</label>
-        <input type="text" name="stu_classid" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $row['stu_class_id'] ?>" required>
+    <div style="margin-bottom: 15px;">
+      <label style="font-weight: bold; margin-bottom: 5px; display: block;">🏫 Class ID</label>
+      <input type="text" name="stu_classid"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $row['stu_class_id'] ?>" required>
     </div>
 
-    <div class="mb-3" style="margin-bottom: 25px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Address</label>
-        <input type="text" name="stu_address" class="form-control"
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;"
-               value="<?= $row['stu_address'] ?>" required>
+    <div style="margin-bottom: 25px;">
+      <label style="font-weight: bold; margin-bottom: 5px; display: block;">📍 Address</label>
+      <input type="text" name="stu_address"
+             style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+             value="<?= $row['stu_address'] ?>" required>
     </div>
 
-    <button type="submit" class="btn btn-primary"
-            style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-        Update
+    <button type="submit"
+            style="width: 100%; background-color: #007bff; color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold;">
+      ✅ Update
     </button>
 
-</form>
+  </form>
+</div>

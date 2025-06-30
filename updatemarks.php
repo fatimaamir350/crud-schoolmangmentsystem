@@ -38,73 +38,59 @@
 </body>
 </html>
 
-<h3 style="font-family: Arial, sans-serif; margin-bottom: 20px; text-align: center;">Update Marks</h3>
+<div style="max-width:600px; margin:80px auto; padding:30px; background-color:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:'Segoe UI', sans-serif;">
 
-<form method="post" style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
-    
-    <div style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Obtained Marks</label>
-        <input type="text" name="obt_marks" class="form-control" 
-               style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" 
-               value="<?= $data['marks_obtained'] ?>" required>
+  <!-- Heading -->
+  <h3 style="margin-bottom:25px; color:#333; text-align:center;">📝 Update Marks</h3>
+
+  <!-- Form -->
+  <form method="post">
+
+    <!-- Obtained Marks -->
+    <div style="margin-bottom:20px;">
+      <label for="obt_marks" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Obtained Marks</label>
+      <input type="text" name="obt_marks" id="obt_marks" 
+             value="<?= $data['marks_obtained'] ?>" required
+             style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;">
     </div>
 
-    <div style="margin-bottom: 15px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Select Paper</label>
-        <select class="form-control" name="paper_id" 
-                style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-            <?php
-            $sql = "SELECT * FROM `papers`";
-            $result = mysqli_query($conn,$sql);
-            foreach($result as $data)
-            {
-                if($paper_id == $data["id"])
-                {
-                    $selected = "selected";
-                    echo $selected;
-                }
-                else {
-                    $selected = "";
-                    echo $selected;
-                }
-                 ?>
-             <option value="<?php echo $data['id'] ?>"><?php echo $selected ?><?php echo $data['paper_type_id'] ?></option>
-             <?php
-             }
-            ?>
-         </select>
+    <!-- Select Paper -->
+    <div style="margin-bottom:20px;">
+      <label for="paper_id" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Select Paper</label>
+      <select name="paper_id" id="paper_id"
+              style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;" required>
+        <?php
+        $sql = "SELECT * FROM `papers`";
+        $result = mysqli_query($conn, $sql);
+        foreach ($result as $data) {
+          $selected = ($paper_id == $data["id"]) ? "selected" : "";
+        ?>
+          <option value="<?= $data['id'] ?>" <?= $selected ?>><?= $data['paper_type_id'] ?></option>
+        <?php } ?>
+      </select>
     </div>
 
-    <div style="margin-bottom: 20px;">
-        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Select Student</label>
-        <select class="form-control" name="student_id" 
-                style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-            <?php
-            $sql = "SELECT * FROM `students`";
-            $result = mysqli_query($conn,$sql);
-            foreach($result as $data)
-            {
-                if($student_id == $data["stu_id"])
-                {
-                    $selected = "selected";
-                    echo $selected;
-                }
-                else {
-                    $selected = "";
-                    echo $selected;
-                }
-                 ?>
-             <option value="<?php echo $data['stu_id'] ?>"><?php echo $selected ?><?php echo $data['stu_name'] ?></option>
-             <?php
-             }
-            ?>
-         </select>
+    <!-- Select Student -->
+    <div style="margin-bottom:25px;">
+      <label for="student_id" style="display:block; margin-bottom:8px; font-weight:600; color:#444;">Select Student</label>
+      <select name="student_id" id="student_id"
+              style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:5px; font-size:16px; box-sizing:border-box;" required>
+        <?php
+        $sql = "SELECT * FROM `students`";
+        $result = mysqli_query($conn, $sql);
+        foreach ($result as $data) {
+          $selected = ($student_id == $data["stu_id"]) ? "selected" : "";
+        ?>
+          <option value="<?= $data['stu_id'] ?>" <?= $selected ?>><?= $data['stu_name'] ?></option>
+        <?php } ?>
+      </select>
     </div>
 
-    <button type="submit" class="btn btn-primary" 
-            style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-        Update
+    <!-- Submit Button -->
+    <button type="submit"
+            style="background-color:#007bff; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+      🔄 Update
     </button>
 
-</form>
-
+  </form>
+</div>

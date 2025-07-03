@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2025 at 10:38 AM
+-- Generation Time: Jul 03, 2025 at 03:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -46,7 +46,8 @@ INSERT INTO `classes` (`id`, `class_name`) VALUES
 (16, 'Grade-9'),
 (17, 'Grade-10'),
 (18, '1st year'),
-(19, '2nd year');
+(19, '2nd year'),
+(20, 'Grade-6');
 
 -- --------------------------------------------------------
 
@@ -137,8 +138,7 @@ INSERT INTO `paper_marks` (`id`, `paper_id`, `student_id`, `marks_obtained`) VAL
 (6, 8, 8, 87),
 (7, 5, 3, 90),
 (8, 12, 39, 75),
-(9, 13, 40, 79),
-(10, 6, 4, 10);
+(9, 13, 40, 79);
 
 -- --------------------------------------------------------
 
@@ -256,6 +256,32 @@ INSERT INTO `teachers` (`id`, `tech_name`, `tech_email`, `subject_id`) VALUES
 (13, 'amna zafar', 'amnazafar@gmail.com', 12),
 (14, 'Khizra jawed', 'khizrajawed@gmail.com', 13);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
+(1, 'fatima', 'fatimamir21@gmail.com', '$2y$10$mmZl5wHJ6NDZihDEiFCMEuUb3uZiu77W267P.rDwSWHRV7K/j9Jjm', '2025-07-03 11:05:43'),
+(2, 'amir', 'amir@gmail.com', '$2y$10$v4DpNFbtRYo7YXKknSwbYO2vV1bZ6u6q1EARS5OcYpZ1cKparmia6', '2025-07-03 13:15:13'),
+(3, 'zainab', 'zainab@gmail.com', '$2y$10$cYGX7adXNJc7nRkDH3l5WucgewY.mMTrYbGbLCZu4PM1EgFcggW7O', '2025-07-03 13:15:57'),
+(4, 'hassan', 'hassan@gmail.com', '$2y$10$kX/7.rj8UBf17bEHX4yg2O1TJO1iQqadk3NWPxn9BpW.3SPJ5usIy', '2025-07-03 13:17:43'),
+(5, 'amna', 'amna@gmail.com', '$2y$10$Hw.VJr4RGB8pvFoasL5au.HC5ymWVkTHe96Yql0v.x5uD7Zn2lwLy', '2025-07-03 13:19:48'),
+(6, 'arham', 'arham@gmail.com', '$2y$10$6Oa4GthTDFtVpSHKuEYbkOFjidWSwLS9r8KWwyBRxLQ.1EEniBocy', '2025-07-03 13:20:36');
+
 --
 -- Indexes for dumped tables
 --
@@ -318,6 +344,13 @@ ALTER TABLE `teachers`
   ADD KEY `subject_id` (`subject_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -325,7 +358,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `papers`
@@ -368,6 +401,12 @@ ALTER TABLE `subjects`
 --
 ALTER TABLE `teachers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
